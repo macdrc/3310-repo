@@ -16,7 +16,7 @@ typedef struct list_ {
 } list;
 
 node* create_node (char new_name, unsigned long long new_phone){
-    node* new_node = (node*) malloc(sizeof(node*));
+    node* new_node = (node*) malloc(sizeof(node));
     new_node->next = NULL;
     new_node->name = new_name;
     new_node->phone = new_phone;
@@ -24,7 +24,7 @@ node* create_node (char new_name, unsigned long long new_phone){
 }
 
 list* create_list (){
-    list* new_list = (list*) malloc(sizeof(list*));
+    list* new_list = (list*) malloc(sizeof(list));
     if (new_list == NULL)
         return NULL;
     new_list->head = NULL;
@@ -111,6 +111,10 @@ void free_hashtable (list* hashtable []){
         node* head1 = hashtable[i]->head;
         
         free_list(head1);
+
+        // After freeing the linked list, set the hashtable entry to NULL
+        free(hashtable[i]);
+        hashtable[i] = NULL;
     }
 }
 
