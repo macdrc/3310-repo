@@ -53,17 +53,16 @@ int add_to_hastable (list* hashtable [], node* my_node){
 node* search (list* hashtable [], unsigned long long phone){
     int ix = hash_function(phone);
     node* current_node = hashtable[ix]->head;
-
     if (current_node == NULL)
         return NULL;
     while(current_node->next != NULL){
         
         if (current_node->phone == phone)
             return current_node;
-
         current_node = current_node->next;
+        if (current_node == NULL)
+            return NULL;
     }
-    return current_node;
 }
 
 void print_hashtable (list* hashtable []){
@@ -87,15 +86,10 @@ void free_list(node* head){
         }
         
 void free_hashtable (list* hashtable []){
-    
     for (int i = 0; i < SIZE; i++){
-        
-        printf("\nfreeing memory");
-
         node* head1 = hashtable[i]->head;
         
         free_list(head1);
-
         // After freeing the linked list, set the hashtable entry to NULL
         free(hashtable[i]);
         hashtable[i] = NULL;

@@ -34,8 +34,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/3310/HashTables",
-      "program": "c:/3310/HashTables/build/Debug/outDebug",
+      "cwd": "c:/3310/seminar3",
+      "program": "c:/3310/seminar3/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

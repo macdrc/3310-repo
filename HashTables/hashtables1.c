@@ -27,7 +27,7 @@ int main(int argc, char **argv){
         add_to_hastable (hashtable_1, create_node('A'+i, numbers_list[i]));
     }
 
-    char found = (search (hashtable_1, 4088131105))->name;
+    char found = (search (hashtable_1, 4088131145))->name;
     printf("Found: %c\n", found);
 
     print_hashtable(hashtable_1);
